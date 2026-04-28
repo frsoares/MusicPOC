@@ -31,11 +31,8 @@ struct ContentView: View {
 
     var normalBody: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-
-            Text("Hello, ") + Text(Image(systemName: "applelogo")) + Text("Music!")
+            (Text("Hello, ") + Text(Image(systemName: "applelogo")) + Text("Music!"))
+                .font(.largeTitle)
             TextField("Search for a song", text: $text)
                 .onSubmit {
                     self.search(for: self.text)
@@ -121,8 +118,10 @@ struct ContentView: View {
     func apply(response: MusicCatalogSearchResponse, for term: String) {
         // não temos atualização se o termo de busca já tiver sido alterado
         if self.text == term {
-            self.songs = response.songs
-            self.albums = response.albums
+            withAnimation {
+                self.songs = response.songs
+                self.albums = response.albums
+            }
         }
     }
 }

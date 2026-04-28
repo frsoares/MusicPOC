@@ -25,10 +25,10 @@ struct AlbumDetailView: View {
                 Spacer()
                 VStack (alignment: .trailing){
                     Text(album.title)
-                        .font(.largeTitle)
+                        .font(.title)
                         .multilineTextAlignment(.trailing)
                     Text(album.artistName)
-                        .font(.title)
+                        .font(.title3)
                         .multilineTextAlignment(.trailing)
                 }
             }
