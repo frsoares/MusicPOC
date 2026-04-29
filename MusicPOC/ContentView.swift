@@ -34,7 +34,7 @@ struct ContentView: View {
 
     var normalBody: some View {
         VStack {
-            (Text("Hello, ") + Text(Image(systemName: "applelogo")) + Text("Music!"))
+            (Text("Hello, \(Image(systemName: "applelogo"))Music!"))
                 .font(.largeTitle)
             TextField("Search for a song", text: $text)
                 .onSubmit {
