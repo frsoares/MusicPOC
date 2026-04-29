@@ -76,7 +76,6 @@ struct SongCell: View {
     @MainActor
     func updateAudioPlayer(with data: Data) throws {
         audioControl = (audioPlayer: try AVAudioPlayer(data: data), songId: song.id)
-//        audioPlayer = try AVAudioPlayer(data: data)
         audioControl?.audioPlayer.currentTime = 0
     }
 }
