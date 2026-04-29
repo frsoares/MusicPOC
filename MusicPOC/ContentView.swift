@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MusicKit
+import AVFoundation
 
 struct ContentView: View {
 
@@ -16,6 +17,8 @@ struct ContentView: View {
 
     @State private var albums = MusicItemCollection<Album>()
     @State private var songs = MusicItemCollection<Song>()
+
+    @State private var audioControl: (audioPlayer: AVAudioPlayer, songId: Song.ID)?
 
     var body: some View {
         if authorization == .authorized {
@@ -66,7 +69,7 @@ struct ContentView: View {
 
     var songsBody: some View {
         List(songs) { song in
-            SongCell(song: song)
+            SongCell(song: song, audioControl: $audioControl)
         }
     }
 

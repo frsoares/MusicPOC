@@ -13,7 +13,8 @@ struct AlbumDetailView: View {
     var body: some View {
         Form {
             HStack {
-                AsyncImage(url: album.artwork?.url(width: 256, height: 256)) { image in
+                let imageWidth = 1024
+                AsyncImage(url: album.artwork?.url(width: imageWidth, height: imageWidth)) { image in
                     image
                         .resizable()
                         .scaledToFit()
